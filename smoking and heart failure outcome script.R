@@ -331,7 +331,7 @@ BIOSTAT_$SMOKING3 <- relevel(factor(BIOSTAT_$SMOKING3), ref = "Never")
 fit_km <- survfit(Surv(Mdays, M) ~ SMOKING, data = BIOSTAT_)
 
 #the final model
-fit_cox <- coxph(Surv(MHdays, MH) ~ SMOKING3+AGE+DEM_SEX+BMI
+fit_cox <- coxph(Surv(MHdays, MH) ~ SMOKING3+AGE+DEM_SEX
                  , data = BIOSTAT_)
 
 vif(fit_cox)
@@ -359,7 +359,7 @@ Validation_$DEM_SEX <- factor(
 )
 
 #the final model
-fit_cox <- coxph(Surv(MHdays, MH) ~ SMOKING3+AGE+DEM_SEX+PE_BMI 
+fit_cox <- coxph(Surv(MHdays, MH) ~ SMOKING3+AGE+DEM_SEX 
                  , data = Validation_)
 
 ph_test <- cox.zph(fit_cox)
